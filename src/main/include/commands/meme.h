@@ -7,16 +7,14 @@
 
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-#include <ctre/Phoenix.h>
-class driveTrain : public frc::Subsystem {
+#include <frc/commands/Command.h>
+
+class meme : public frc::Command {
  public:
-  driveTrain();
-  void drive(double leftSpeed, double rightSpeed);
- private:
-  // It's desirable that everything
-  // for methods that implement subsystem capabilities
-
- 
+  meme();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
-

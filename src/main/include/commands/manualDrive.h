@@ -8,6 +8,7 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include <frc/Joystick.h>
 
 class manualDrive : public frc::Command {
  public:
@@ -17,4 +18,5 @@ class manualDrive : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+  frc::Joystick stick = frc::Joystick(0);
 };

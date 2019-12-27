@@ -9,18 +9,20 @@
 
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-
+#include <frc/Joystick.h>
+#include <ctre/Phoenix.h>
 #include "commands/manualDrive.h"
-#include "subsystems/driveTrain.h"
 #include "subsystems/joystick.h"
 
 std::unique_ptr< driveTrain > Robot::m_driveTrain{};
 std::unique_ptr< joystick > Robot::m_joystick{};
+std::unique_ptr< manualDrive > Robot::m_manualDrive{};
+//std::unique_ptr< driveTrain > Robot::m_driveTrain{};
 void Robot::RobotInit() {
 
-
-  m_driveTrain = std::make_unique< driveTrain >();
-  m_joystick = std::make_unique< joystick >(1);
+  m_driveTrain = std::make_unique<driveTrain>();
+  m_joystick = std::make_unique< joystick >(0);
+  m_manualDrive = std::make_unique< manualDrive >();
 }
 
 /**
@@ -31,7 +33,10 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic() {
+  //m_driveTrain->drive(0,0);
+  m_manualDrive->Start();
+}
 
 /**
  * This function is called once each time the robot enters Disabled mode. You

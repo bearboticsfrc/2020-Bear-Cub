@@ -10,8 +10,10 @@
 #include <frc/TimedRobot.h>
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
-
-
+#include <frc/Joystick.h>
+#include "subsystems/driveTrain.h"
+#include "commands/manualDrive.h"
+#include "subsystems/joystick.h"
 class Robot : public frc::TimedRobot {
  public:
 
@@ -24,9 +26,11 @@ class Robot : public frc::TimedRobot {
   void TeleopInit() override;
   void TeleopPeriodic() override;
   void TestPeriodic() override;
-
   static std::unique_ptr< driveTrain > m_driveTrain;
+
+  //static std::unique_ptr< driveTrain > m_driveTrain;
   static std::unique_ptr< joystick > m_joystick;
+  static std::unique_ptr< manualDrive > m_manualDrive;
  private:
   // Have it null by default so that if testing teleop it
   // doesn't have undefined behavior and potentially crash.

@@ -4,34 +4,27 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
-#include "commands/manualDrive.h"
-<<<<<<< HEAD
-#include "subsystems/driveTrain.h"
-#include "subsystems/joystick.h"
 #include "Robot.h"
-=======
+#include "commands/manualDrive.h"
 
->>>>>>> ea90d52fcfba3db706fcb07127d8f5f5ca0050f1
 manualDrive::manualDrive() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
+  
 }
 
 // Called just before this Command runs the first time
-void manualDrive::Initialize() {}
-
-// Called repeatedly when this Command is scheduled to run
-<<<<<<< HEAD
-void manualDrive::Execute() {
-double leftspeed = joystick->GetX();
-double rightspeed = joystick->GetTwist();
-driveTrain->drive(leftspeed, rightspeed);
+void manualDrive::Initialize() {
+  //Robot::m_driveTrain->drive(0,0);
 
 }
-=======
-void manualDrive::Execute() {}
->>>>>>> ea90d52fcfba3db706fcb07127d8f5f5ca0050f1
+
+// Called repeatedly when this Command is scheduled to run
+void manualDrive::Execute() {
+double leftspeed = stick.GetX();
+double rightspeed = stick.GetTwist();
+Robot::m_driveTrain->drive(leftspeed, rightspeed);
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool manualDrive::IsFinished() { return false; }
