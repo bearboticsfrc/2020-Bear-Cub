@@ -9,12 +9,17 @@
 
 #include <frc/commands/Subsystem.h>
 
+#include <Joystick.h>
+
 class joystick : public frc::Subsystem {
  private:
+frc::Joystick stick;
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
  public:
-  joystick();
+  joystick(int port);
   void InitDefaultCommand() override;
+  double GetX();
+  double GetTwist();
 };

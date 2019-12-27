@@ -7,12 +7,20 @@
 
 #include "subsystems/joystick.h"
 
-joystick::joystick() : Subsystem("ExampleSubsystem") {}
+joystick::joystick(int port) : Subsystem("ExampleSubsystem"), stick(port)
+ {}
 
 void joystick::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+double joystick::GetX() {
+  return stick.GetX();
+}
+
+double joystick::GetTwist() {
+  return stick.GetTwist();
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
