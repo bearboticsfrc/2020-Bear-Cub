@@ -7,7 +7,7 @@
 
 #include "subsystems/joystick.h"
 
-joystick::joystick(int port) : Subsystem("ExampleSubsystem"), stick(port)
+joystick::joystick(int port) : Subsystem("joystick"), stick(port)
  {}
 
 void joystick::InitDefaultCommand() {

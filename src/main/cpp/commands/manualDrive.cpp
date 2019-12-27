@@ -21,8 +21,8 @@ void manualDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void manualDrive::Execute() {
-double leftspeed = stick.GetX();
-double rightspeed = stick.GetTwist();
+double leftspeed = stick.GetX() - stick.GetTwist();
+double rightspeed = stick.GetX() - stick.GetTwist();
 Robot::m_driveTrain->drive(leftspeed, rightspeed);
 }
 

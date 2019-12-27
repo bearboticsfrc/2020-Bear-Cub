@@ -9,11 +9,6 @@
 
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <frc/Joystick.h>
-#include <ctre/Phoenix.h>
-#include "commands/manualDrive.h"
-#include "subsystems/joystick.h"
-
 std::unique_ptr< driveTrain > Robot::m_driveTrain{};
 std::unique_ptr< joystick > Robot::m_joystick{};
 std::unique_ptr< manualDrive > Robot::m_manualDrive{};
