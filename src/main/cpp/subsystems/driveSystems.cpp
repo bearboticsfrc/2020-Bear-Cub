@@ -5,40 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/manualDrive.h"
-<<<<<<< HEAD
-#include "subsystems/driveTrain.h"
-#include "subsystems/joystick.h"
-#include "Robot.h"
-=======
+#include "subsystems/driveSystems.h"
 
->>>>>>> ea90d52fcfba3db706fcb07127d8f5f5ca0050f1
-manualDrive::manualDrive() {
+
+driveSystems::driveSystems() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void manualDrive::Initialize() {}
+void driveSystems::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-<<<<<<< HEAD
-void manualDrive::Execute() {
-double leftspeed = joystick->GetX();
-double rightspeed = joystick->GetTwist();
-driveTrain->drive(leftspeed, rightspeed);
-
-}
-=======
-void manualDrive::Execute() {}
->>>>>>> ea90d52fcfba3db706fcb07127d8f5f5ca0050f1
+void driveSystems::Execute() {}
 
 // Make this return true when this Command no longer needs to run execute()
-bool manualDrive::IsFinished() { return false; }
+bool driveSystems::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void manualDrive::End() {}
+void driveSystems::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void manualDrive::Interrupted() {}
+void driveSystems::Interrupted() {}

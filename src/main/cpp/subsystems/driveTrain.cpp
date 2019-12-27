@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/driveTrain.h"
+<<<<<<< HEAD
 #include "Robot.h"
 driveTrain::driveTrain() :
 frontLeft(0),
@@ -24,3 +25,15 @@ void drive(double leftSpeed, double rightSpeed) {
     backLeft.Set(leftSpeed);
     backRight.Set(rightSpeed);
 }
+=======
+
+driveTrain::driveTrain() : Subsystem("ExampleSubsystem") {}
+
+void driveTrain::InitDefaultCommand() {
+  // Set the default command for a subsystem here.
+  // SetDefaultCommand(new MySpecialCommand());
+}
+
+// Put methods for controlling this subsystem
+// here. Call these from Commands.
+>>>>>>> ea90d52fcfba3db706fcb07127d8f5f5ca0050f1
