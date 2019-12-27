@@ -6,7 +6,9 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/manualDrive.h"
-
+#include "subsystems/driveTrain.h"
+#include "subsystems/joystick.h"
+#include "Robot.h"
 manualDrive::manualDrive() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
@@ -16,7 +18,12 @@ manualDrive::manualDrive() {
 void manualDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void manualDrive::Execute() {}
+void manualDrive::Execute() {
+double leftspeed = joystick->GetX();
+double rightspeed = joystick->GetTwist();
+driveTrain->drive(leftspeed, rightspeed);
+
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool manualDrive::IsFinished() { return false; }

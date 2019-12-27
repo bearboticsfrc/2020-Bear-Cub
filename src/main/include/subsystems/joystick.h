@@ -9,7 +9,7 @@
 
 #include <frc/commands/Subsystem.h>
 
-#include <Joystick.h>
+#include <frc/Joystick.h>
 
 class joystick : public frc::Subsystem {
  private:
