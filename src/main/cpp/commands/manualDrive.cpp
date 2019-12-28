@@ -21,7 +21,7 @@ void manualDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void manualDrive::Execute() {
-double fwd = Robot::m_joystick->GetY();
+double fwd = -Robot::m_joystick->GetY();
 double turn = Robot::m_joystick->GetTwist();
 Robot::m_driveTrain->drive(fwd, turn);
 }
