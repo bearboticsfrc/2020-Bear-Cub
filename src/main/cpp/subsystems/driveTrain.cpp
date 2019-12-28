@@ -7,17 +7,21 @@
 
 #include "subsystems/driveTrain.h"
 #include "Robot.h"
+#include <frc/SpeedControllerGroup.h>
+#include <frc/drive/DifferentialDrive.h>
 WPI_TalonSRX frontLeft{6};
 WPI_TalonSRX frontRight{8};
 WPI_TalonSRX backLeft{4};
 WPI_TalonSRX backRight{3};
+frc::SpeedControllerGroup left{frontLeft,backLeft};
+frc::SpeedControllerGroup right{frontRight,backRight};
+frc::DifferentialDrive driver{left,right};
 driveTrain::driveTrain() : Subsystem("driveTrain")
  {
  }
 
-void driveTrain::drive(double leftSpeed, double rightSpeed) {
-    frontLeft.Set(1.0);
-    frontRight.Set(1.0);
-    backLeft.Set(1.0);
-    backRight.Set(1.0);
+void driveTrain::drive(double fwd, double turn) {
+
+    driver.ArcadeDrive(fwd, turn);
+    
 }

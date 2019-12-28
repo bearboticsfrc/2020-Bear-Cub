@@ -21,9 +21,9 @@ void manualDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void manualDrive::Execute() {
-double leftspeed = stick.GetX() - stick.GetTwist();
-double rightspeed = stick.GetX() - stick.GetTwist();
-Robot::m_driveTrain->drive(leftspeed, rightspeed);
+double fwd = Robot::m_joystick->GetY();
+double turn = Robot::m_joystick->GetTwist();
+Robot::m_driveTrain->drive(fwd, turn);
 }
 
 // Make this return true when this Command no longer needs to run execute()

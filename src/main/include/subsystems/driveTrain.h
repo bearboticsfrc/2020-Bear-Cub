@@ -12,7 +12,7 @@
 class driveTrain : public frc::Subsystem {
  public:
   driveTrain();
-  void drive(double leftSpeed, double rightSpeed);
+  void drive(double fwd, double turn);
  private:
   // It's desirable that everything
   // for methods that implement subsystem capabilities

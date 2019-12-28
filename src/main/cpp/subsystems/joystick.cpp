@@ -18,7 +18,9 @@ void joystick::InitDefaultCommand() {
 double joystick::GetX() {
   return stick.GetX();
 }
-
+double joystick::GetY() {
+  return stick.GetY();
+}
 double joystick::GetTwist() {
   return stick.GetTwist();
 }

@@ -22,4 +22,5 @@ frc::Joystick stick;
   void InitDefaultCommand() override;
   double GetX();
   double GetTwist();
+  double GetY();
 };
