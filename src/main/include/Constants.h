@@ -4,18 +4,15 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-#
 
-#include "subsystems/Drivetrain.h"
+#pragma once
 
-Drivetrain::Drivetrain() {}
-
-// This method will be called once per scheduler run
-void Drivetrain::Periodic() {}
-
-
-void Drivetrain::Drive(double speed, double angle) {
-Drivetrain::driver.ArcadeDrive(speed, angle);
-
-
-}
+/**
+ * The Constants header provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants.  This should not be used for any other
+ * purpose.
+ *
+ * It is generally a good idea to place constants into subsystem- or
+ * command-specific namespaces within this header, which can then be used where
+ * they are needed.
+ */

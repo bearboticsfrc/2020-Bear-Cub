@@ -1,37 +1,31 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-#include "Robot.h"
-#include "commands/manualDrive.h"
 
-manualDrive::manualDrive() {
-  // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(Robot::chassis.get());
-  
+#include "commands/ManualDrive.h"
+
+ManualDrive::ManualDrive(Drivetrain* subsystem,
+                           std::function<double()> forward,
+                           std::function<double()> rotation)
+    : m_drive{subsystem}, m_forward{forward}, m_rotation{rotation} {
+  AddRequirements({subsystem});
+
+  // Use addRequirements() here to declare subsystem dependencies.
 }
 
-// Called just before this Command runs the first time
-void manualDrive::Initialize() {
-  //Robot::m_driveTrain->drive(0,0);
-
-}
+// Called when the command is initially scheduled.
+void ManualDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void manualDrive::Execute() {
-double fwd = -Robot::m_joystick->GetY();
-double turn = Robot::m_joystick->GetTwist();
-Robot::m_driveTrain->drive(fwd, turn);
+void ManualDrive::Execute() {
+  m_drive->Drive(-m_forward(), m_rotation());
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool manualDrive::IsFinished() { return false; }
+// Called once the command ends or is interrupted.
+void ManualDrive::End(bool interrupted) {}
 
-// Called once after isFinished returns true
-void manualDrive::End() {}
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void manualDrive::Interrupted() {}
+// Returns true when the command should end.
+bool ManualDrive::IsFinished() { return false; }

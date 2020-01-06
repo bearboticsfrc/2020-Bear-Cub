@@ -4,18 +4,21 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-#
 
-#include "subsystems/Drivetrain.h"
+#include "RobotContainer.h"
 
-Drivetrain::Drivetrain() {}
+RobotContainer::RobotContainer() {
+  // Initialize all of your commands and subsystems here
 
-// This method will be called once per scheduler run
-void Drivetrain::Periodic() {}
+  // Configure the button bindings
+  ConfigureButtonBindings();
 
-
-void Drivetrain::Drive(double speed, double angle) {
-Drivetrain::driver.ArcadeDrive(speed, angle);
-
-
+  m_driver.SetDefaultCommand(ManualDrive(&m_driver,
+  [this] {return m_joystick.GetY();},
+  [this] {return m_joystick.GetTwist();}));
 }
+
+void RobotContainer::ConfigureButtonBindings() {
+  // Configure your button bindings here
+}
+
